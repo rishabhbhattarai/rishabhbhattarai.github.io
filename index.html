@@ -1,0 +1,461 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Rishabh's Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Filter buttons styling */
+			.filter-buttons {
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+				gap: 6px;
+				margin-bottom: 30px;
+			}
+
+			.filter-btn {
+				padding: 6px 12px;
+				background-color: rgba(144, 144, 144, 0.075);
+				border: none;
+				outline: none;
+				border-radius: 25px;
+				cursor: pointer;
+				font-weight: 700;
+				font-size: 0.6em;
+				letter-spacing: 0.03em;
+				text-transform: capitalize;
+				color: #555;
+				transition: all 0.3s ease;
+				line-height: 1.3;
+			}
+
+			.filter-btn:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+			}
+
+			.filter-btn:focus {
+				outline: none;
+				box-shadow: none;
+			}
+
+			/* Default state colors */
+			.filter-btn[data-filter="excel"] {
+				color: #217346;
+			}
+
+			.filter-btn[data-filter="google-sheets"] {
+				color: #0F9D58;
+			}
+
+			.filter-btn[data-filter="tableau"] {
+				color: #1F6BB6;
+			}
+
+			.filter-btn[data-filter="python"] {
+				color: #F37626;
+			}
+
+			.filter-btn[data-filter="all"] {
+				color: #6bd4c8;
+			}
+
+			/* Active state colors - IMPORTANT: These need to override the default */
+			.filter-btn.active[data-filter="excel"] {
+				background-color: #1a5c38 !important;
+				color: #fff !important;
+			}
+
+			.filter-btn.active[data-filter="google-sheets"] {
+				background-color: #0c7a46 !important;
+				color: #fff !important;
+			}
+
+			.filter-btn.active[data-filter="tableau"] {
+				background-color: #185494 !important;
+				color: #fff !important;
+			}
+
+			.filter-btn.active[data-filter="python"] {
+				background-color: #d4691f !important;
+				color: #fff !important;
+			}
+
+			.filter-btn.active[data-filter="all"] {
+				background-color: #5bb8ad !important;
+				color: #fff !important;
+			}
+
+			/* Project cards styling */
+			.projects-grid {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 1.2em;
+				margin-top: 2em;
+			}
+
+			.project-card {
+				background-color: #fff;
+				border-radius: 12px;
+				overflow: hidden;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				border: solid 1px rgba(144, 144, 144, 0.15);
+				display: flex;
+				flex-direction: column;
+				cursor: pointer;
+				text-decoration: none; /* Remove underline from link */
+			}
+
+			.project-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+				text-decoration: none; /* Ensure no underline on hover */
+			}
+
+			.project-card img {
+				width: 100%;
+				height: 140px;
+				object-fit: cover;
+				display: block;
+			}
+
+			.project-content {
+				padding: 1em;
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+			}
+
+			.project-card h3 {
+				font-size: 0.9em;
+				margin-bottom: 0.5em;
+				color: #555;
+				line-height: 1.3em;
+				font-weight: 600;
+			}
+
+			.project-card p {
+				color: #666;
+				margin-bottom: auto;
+				font-size: 0.75em;
+				line-height: 1.5em;
+			}
+
+			.project-category {
+				display: inline-block;
+				padding: 2px 8px;
+				border-radius: 15px;
+				font-size: 0.55em;
+				font-weight: 600;
+				letter-spacing: 0.03em;
+				text-transform: capitalize;
+				margin-top: 0.6em;
+				align-self: flex-start;
+			}
+
+			/* Category-specific tag colors */
+			.project-card[data-category="excel"] .project-category {
+				background-color: rgba(33, 115, 70, 0.1);
+				color: #217346;
+			}
+
+			.project-card[data-category="google-sheets"] .project-category {
+				background-color: rgba(15, 157, 88, 0.1);
+				color: #0F9D58;
+			}
+
+			.project-card[data-category="tableau"] .project-category {
+				background-color: rgba(31, 107, 182, 0.1);
+				color: #1F6BB6;
+			}
+
+			.project-card[data-category="python"] .project-category {
+				background-color: rgba(243, 118, 38, 0.1); /* Jupyter orange with transparency */
+				color: #F37626;
+			}
+
+			.no-results {
+				text-align: center;
+				padding: 3em;
+				grid-column: 1 / -1;
+				color: #999;
+				font-size: 1.1em;
+			}
+
+			/* Center the heading and subheading */
+			#one .major {
+				text-align: center;
+			}
+
+			#one .major + p {
+				text-align: center;
+				margin-bottom: 2em;
+			}
+
+			@media screen and (max-width: 980px) {
+				.projects-grid {
+					grid-template-columns: repeat(2, 1fr);
+					gap: 1em;
+				}
+			}
+
+			@media screen and (max-width: 736px) {
+				.projects-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.filter-buttons {
+					gap: 5px;
+				}
+
+				.filter-btn {
+					padding: 5px 10px;
+					font-size: 0.55em;
+				}
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Header -->
+			<section id="header">
+				<div class="inner">
+					<span class="icon solid major fa-cloud"></span>
+					<h1>Hi, I'm <strong>Rishabh</strong>, and this is<br />
+					my portfolio.</h1>
+					<p>Portfolo Description.</p>
+					<ul class="actions special">
+						<li><a href="#one" class="button scrolly">Discover</a></li>
+					</ul>
+				</div>
+			</section>
+
+								<!-- One -->
+			<section id="one" class="main style1">
+				<div class="container">
+					<header class="major">
+						<h2>Featured Projects</h2>
+					</header>
+					<p>Explore my work across different data tools and platforms</p>
+
+					<div class="filter-buttons">
+						<button class="filter-btn active" data-filter="all">All</button>
+						<button class="filter-btn" data-filter="excel">Excel</button>
+						<button class="filter-btn" data-filter="google-sheets">Google Sheets</button>
+						<button class="filter-btn" data-filter="tableau">Tableau</button>
+						<button class="filter-btn" data-filter="python">Python</button>
+					</div>
+
+					<div class="projects-grid">
+						<!-- Python Projects -->
+						<a href="https://github.com/rishabhbhattarai/airbnb-listing-analysis" class="project-card" data-category="python" target="_blank">
+							<img src="https://images.unsplash.com/photo-1657256031855-68029292ff34?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074" alt="AirBnB Listing Analysis">
+							<div class="project-content">
+								<h3>AirBnB Listing Analysis</h3>
+								<p>Analyzed Airbnb Paris data in Python to assess the impact of 2015 regulations on host activity and pricing, uncovering trends in new hosts, neighborhood rates, and accommodation size.</p>
+								<span class="project-category">Python</span>
+							</div>
+						</a>
+
+						<!-- Tableau Projects -->
+						<a href="https://github.com/rishabhbhattarai/global-co2-emissions-dashboard" class="project-card" data-category="tableau" target="_blank">
+							<img src="https://images.unsplash.com/photo-1732187418596-18faa4a4b6f5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1631" alt="Global CO₂ Emissions Dashboard">
+							<div class="project-content">
+								<h3>Global CO₂ Emissions Dashboard (1750 – 2022)</h3>
+								<p>Created an interactive Tableau dashboard analyzing 250 years of global CO₂ emissions, revealing trends, regional disparities, and per-capita insights for data-driven climate awareness.</p>
+								<span class="project-category">Tableau</span>
+							</div>
+						</a>
+
+						<!-- Google Sheets Projects -->
+						<a href="https://github.com/rishabhbhattarai/MoMA-art-explorer" class="project-card" data-category="google-sheets" target="_blank">
+							<img src="https://images.unsplash.com/photo-1606819717115-9159c900370b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="MoMA Art Explorer">
+							<div class="project-content">
+								<h3>MoMA Art Explorer</h3>
+								<p>Built an interactive MoMA Art Explorer in Google Sheets, enabling dynamic filtering of artworks by nationality, artist, and year, with real-time metrics and embedded images.</p>
+								<span class="project-category">Google Sheets</span>
+							</div>
+						</a>
+
+						<a href="https://github.com/rishabhbhattarai/automated-stock-tracker" class="project-card" data-category="google-sheets" target="_blank">
+							<img src="https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Automated Stock Tracker">
+							<div class="project-content">
+								<h3>Automated Stock Tracker</h3>
+								<p>Built an automated stock tracker in Google Sheets using GOOGLEFINANCE and SPARKLINE, fetching live tech stock data, applying smart formatting, and visualizing 1-year trends.</p>
+								<span class="project-category">Google Sheets</span>
+							</div>
+						</a>
+
+						<!-- Excel Projects -->
+						<a href="https://github.com/rishabhbhattarai/manufacturing-downtime-analysis" class="project-card" data-category="excel" target="_blank">
+							<img src="https://images.unsplash.com/photo-1503147658877-b6636154a299?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1167" alt="Wolf Cola Production Line Efficiency Analysis">
+							<div class="project-content">
+								<h3>Wolf Cola Production Line Efficiency Analysis</h3>
+								<p>Analyzed Wolf Cola's bottling line efficiency using downtime data in Excel, identifying key bottlenecks, operator performance gaps, and actionable improvements to boost productivity.</p>
+								<span class="project-category">Excel</span>
+							</div>
+						</a>
+
+						<a href="https://github.com/rishabhbhattarai/excel-data-model-interactive-report" class="project-card" data-category="excel" target="_blank">
+							<img src="https://images.unsplash.com/photo-1565211604822-2641d0b081a6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Maven Electronics Revenue Analysis">
+							<div class="project-content">
+								<h3>Maven Electronics Revenue Analysis</h3>
+								<p>Built an Excel data model and interactive dashboard for Maven Electronics to track revenue trends, analyze product/store performance, and uncover insights for informed decision-making.</p>
+								<span class="project-category">Excel</span>
+							</div>
+						</a>
+
+						<a href="https://github.com/rishabhbhattarai/coffee-culture-uncovered" class="project-card" data-category="excel" target="_blank">
+							<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Coffee Culture Uncovered">
+							<div class="project-content">
+								<h3>Coffee Culture Uncovered</h3>
+								<p>Analyzed U.S. coffee consumer trends using survey data in Excel to guide product offerings, pricing, and target audience for a data-driven café launch strategy.</p>
+								<span class="project-category">Excel</span>
+							</div>
+						</a>
+
+						<a href="https://github.com/rishabhbhattarai/customer-engagement-analysis" class="project-card" data-category="excel" target="_blank">
+							<img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1106" alt="Customer Engagement Analysis">
+							<div class="project-content">
+								<h3>Customer Engagement Analysis</h3>
+								<p>Analyzed 365 Company's platform features' impact on student engagement using Excel. Conducted statistical tests, confidence intervals, and visualizations to uncover key insights.</p>
+								<span class="project-category">Excel</span>
+							</div>
+						</a>
+					</div>
+				</div>
+			</section>
+
+		<!-- Two -->
+		<section id="two" class="main style2">
+			<div class="container">
+				<div class="row gtr-150">
+					<div class="col-6 col-12-medium">
+						<ul class="major-icons">
+							<li><span class="icon solid style1 major fa-chart-bar"></span></li>
+                    		<li><span class="icon solid style2 major fa-database"></span></li>
+                    		<li><span class="icon solid style3 major fa-code"></span></li>
+                    		<li><span class="icon solid style4 major fa-bolt"></span></li>
+                    		<li><span class="icon solid style5 major fa-cogs"></span></li>
+                    		<li><span class="icon solid style6 major fa-project-diagram"></span></li>
+                    		<li><span class="icon solid style7 major fa-shield-alt"></span></li>
+                    		<li><span class="icon solid style8 major fa-users"></span></li>
+						</ul>
+					</div>
+					<div class="col-6 col-12-medium">
+						<header class="major">
+							<h2>Skills & Tools</h2>
+						</header>
+						<h3>Data Analysis & Business Intelligence</h3>
+						<p>Excel (PivotTables, Power Query, Power Pivot, DAX), Tableau, Power BI, SQL, Google Sheets, Data visualization & dashboarding, Data modeling & ETL.</p>
+						<h3>Process Improvement & Automation</h3>
+						<p>Power Automate, SharePoint, Business Process Mapping (BPMN), Risk Management (ISO 9001, ISO 27001), Workflow automation.</p>
+						<h3>Data Quality & Governance</h3>
+						<p>Data cleaning & validation, Data governance best practices, Information security & compliance, Data privacy (GDPR, ISO 27001).</p>
+						<h3>Consulting & Project Management</h3>
+						<p>Stakeholder communication, Process mapping & optimization, Documentation & reporting, Agile & Scrum methodologies, Business analysis, Requirements gathering.</p>
+						<h3>Soft Skills</h3>
+						<p>Problem-solving & critical thinking, Time management & organization, Leadership & team collaboration, Training & development, Research & information gathering, Presentation & report writing.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Three -->
+			<section id="three" class="main style1">
+				<div class="container">
+					<div class="row gtr-150">
+						<div class="col-6 col-12-medium">
+							<header class="major">
+								<h2>Lorem ipsum dolor adipiscing<br />
+								amet dolor consequat</h2>
+							</header>
+							<p>Adipiscing a commodo ante nunc accumsan et interdum mi ante adipiscing. A nunc lobortis non nisl amet vis sed volutpat aclacus nascetur ac non. Lorem curae et ante amet sapien sed tempus adipiscing id accumsan.</p>
+						</div>
+						<div class="col-6 col-12-medium imp-medium">
+							<span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
+						</div>
+					</div>
+				</div>
+			</section>
+		<!-- Four -->
+			<section id="four" class="main style2 special">
+				<div class="container">
+					<header class="major">
+						<h2>Ipsum feugiat consequat?</h2>
+					</header>
+					<p>Sed lacus nascetur ac ante amet sapien.</p>
+					<ul class="actions special">
+						<li><a href="#" class="button wide primary">Sign Up</a></li>
+						<li><a href="#" class="button wide">Learn More</a></li>
+					</ul>
+				</div>
+			</section>
+		<!-- Footer -->
+			<section id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</section>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+				// Project filtering functionality
+				document.addEventListener('DOMContentLoaded', function() {
+					const filterButtons = document.querySelectorAll('.filter-btn');
+					const projects = document.querySelectorAll('.project-card');
+
+					filterButtons.forEach(button => {
+						button.addEventListener('click', () => {
+							// Remove active class from all buttons
+							filterButtons.forEach(btn => btn.classList.remove('active'));
+
+							// Add active class to clicked button
+							button.classList.add('active');
+
+							const filterValue = button.getAttribute('data-filter');
+
+							let visibleCount = 0;
+							projects.forEach(project => {
+								if (filterValue === 'all' || project.getAttribute('data-category') === filterValue) {
+									project.style.display = 'flex';
+									visibleCount++;
+								} else {
+									project.style.display = 'none';
+								}
+							});
+
+							// Check if no results
+							const grid = document.querySelector('.projects-grid');
+							let noResultsMsg = grid.querySelector('.no-results');
+
+							if (visibleCount === 0) {
+								if (!noResultsMsg) {
+									noResultsMsg = document.createElement('div');
+									noResultsMsg.className = 'no-results';
+									noResultsMsg.textContent = 'No projects found for this category.';
+									grid.appendChild(noResultsMsg);
+								}
+							} else {
+								if (noResultsMsg) {
+									noResultsMsg.remove();
+								}
+							}
+						});
+					});
+				});
+			</script>
+	</body>
+</html>
