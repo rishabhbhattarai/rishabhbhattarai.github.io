@@ -30,6 +30,7 @@
 				color: #555;
 				transition: all 0.3s ease;
 				line-height: 1.3;
+				font-family: "Source Sans Pro", Helvetica, sans-serif; /* Added font family */
 			}
 
 			.filter-btn:hover {
@@ -108,6 +109,7 @@
 				flex-direction: column;
 				cursor: pointer;
 				text-decoration: none; /* Remove underline from link */
+				font-family: "Source Sans Pro", Helvetica, sans-serif; /* Added font family */
 			}
 
 			.project-card:hover {
@@ -136,6 +138,7 @@
 				color: #555;
 				line-height: 1.3em;
 				font-weight: 600;
+				font-family: "Source Sans Pro", Helvetica, sans-serif; /* Added font family */
 			}
 
 			.project-card p {
@@ -143,6 +146,8 @@
 				margin-bottom: auto;
 				font-size: 0.75em;
 				line-height: 1.5em;
+				font-family: "Source Sans Pro", Helvetica, sans-serif; /* Added font family */
+				font-weight: 300; /* Match the template's body font weight */
 			}
 
 			.project-category {
@@ -155,6 +160,7 @@
 				text-transform: capitalize;
 				margin-top: 0.6em;
 				align-self: flex-start;
+				font-family: "Source Sans Pro", Helvetica, sans-serif; /* Added font family */
 			}
 
 			/* Category-specific tag colors */
@@ -184,6 +190,7 @@
 				grid-column: 1 / -1;
 				color: #999;
 				font-size: 1.1em;
+				font-family: "Source Sans Pro", Helvetica, sans-serif; /* Added font family */
 			}
 
 			/* Center the heading and subheading */
@@ -250,6 +257,44 @@
 					</div>
 
 					<div class="projects-grid">
+						<!-- New Projects Added Here -->
+						<a href="https://github.com/rishabhbhattarai/exploring-world-cup-data" class="project-card" data-category="python" target="_blank">
+							<img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1631" alt="Exploring World Cup Data">
+							<div class="project-content">
+								<h3>Exploring World Cup Data</h3>
+								<p>Explored international football matches (1872–2022) using Python to uncover patterns in World Cup history, goal statistics, and top-scoring nations.</p>
+								<span class="project-category">Python</span>
+							</div>
+						</a>
+
+						<a href="https://github.com/rishabhbhattarai/audible-data-cleaning-python" class="project-card" data-category="python" target="_blank">
+							<img src="https://images.unsplash.com/photo-1594769777888-c6bf27dd87ed?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1331" alt="Audible Data Cleaning">
+							<div class="project-content">
+								<h3>Audible Data Cleaning</h3>
+								<p>Data cleaning of Audible audiobook metadata using pandas — text, numeric, and datetime transformations for analysis-ready results.</p>
+								<span class="project-category">Python</span>
+							</div>
+						</a>
+
+						<a href="https://github.com/rishabhbhattarai/exploring-cell-phone-data" class="project-card" data-category="tableau" target="_blank">
+							<img src="https://plus.unsplash.com/premium_photo-1668472170724-8b544ca3c86e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1171" alt="Exploring Cell Phone Data">
+							<div class="project-content">
+								<h3>Exploring Cell Phone Data</h3>
+								<p>A case study analyzing Australian journalist Will Oendon's cell phone metadata to reveal how location-based data can uncover personal patterns such as home, work, and daily movements.</p>
+								<span class="project-category">Tableau</span>
+							</div>
+						</a>
+
+						<a href="https://github.com/rishabhbhattarai/analyzing-ecommerce-data" class="project-card" data-category="tableau" target="_blank">
+							<img src="https://plus.unsplash.com/premium_photo-1681488350342-19084ba8e224?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1388" alt="Analyzing eCommerce Data">
+							<div class="project-content">
+								<h3>Analyzing eCommerce Data</h3>
+								<p>Analyzed Munchy's Pet Supply eCommerce data in Tableau to build executive dashboards and optimize shipping costs through what-if analysis.</p>
+								<span class="project-category">Tableau</span>
+							</div>
+						</a>
+
+						<!-- Original Projects Below -->
 						<!-- Python Projects -->
 						<a href="https://github.com/rishabhbhattarai/airbnb-listing-analysis" class="project-card" data-category="python" target="_blank">
 							<img src="https://images.unsplash.com/photo-1657256031855-68029292ff34?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074" alt="AirBnB Listing Analysis">
