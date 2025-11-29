@@ -3512,8 +3512,8 @@ input, select, textarea {
 	}
 
 	.custom-logo {
-    width: 500px; /* Adjust this value as needed */
-    height: 500px;
+    width: 200px; /* Adjust this value as needed */
+    height: 200px;
     margin-bottom: 2px;
     border-radius: 50%; /* Since your logo is round */
 }
