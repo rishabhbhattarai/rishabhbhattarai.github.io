@@ -804,18 +804,72 @@
 
 
 		<!-- Four -->
-			<section id="four" class="main style2 special">
-				<div class="container">
-					<header class="major">
-						<h2>Ipsum feugiat consequat?</h2>
-					</header>
-					<p>Sed lacus nascetur ac ante amet sapien.</p>
-					<ul class="actions special">
-						<li><a href="#" class="button wide primary">Sign Up</a></li>
-						<li><a href="#" class="button wide">Learn More</a></li>
-					</ul>
-				</div>
-			</section>
+<section id="four" class="main style2 special">
+    <div class="container">
+        <header class="major">
+            <h2>Articles & Insights</h2>
+        </header>
+        <p>Sharing knowledge and perspectives</p>
+
+        <div class="articles-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2em; margin-top: 2em;">
+            <!-- Article 1 -->
+            <a href="https://medium.com/@reticentrisb/how-a-data-driven-approach-transformed-my-personal-finances-d441b1a95b86"
+               class="article-card"
+               target="_blank"
+               style="background-color: rgba(255, 255, 255, 0.05); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; border: solid 1px rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; cursor: pointer; text-decoration: none; font-family: 'Source Sans Pro', Helvetica, sans-serif;">
+                <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/0*bGQ3mqxLibTusJYD"
+                     alt="How a Data-Driven Approach Transformed My Personal Finances"
+                     style="width: 100%; height: 140px; object-fit: cover; display: block;">
+                <div class="article-content" style="padding: 1em; display: flex; flex-direction: column; flex-grow: 1;">
+                    <h3 style="font-size: 0.9em; margin-bottom: 0.5em; color: #fff; line-height: 1.3em; font-weight: 600; font-family: 'Source Sans Pro', Helvetica, sans-serif;">
+                        How a Data-Driven Approach Transformed My Personal Finances
+                    </h3>
+                </div>
+            </a>
+
+            <!-- Article 2 -->
+            <a href="https://medium.com/@reticentrisb/how-data-quality-influences-business-intelligence-decision-making-226f2d43e2c1"
+               class="article-card"
+               target="_blank"
+               style="background-color: rgba(255, 255, 255, 0.05); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; border: solid 1px rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; cursor: pointer; text-decoration: none; font-family: 'Source Sans Pro', Helvetica, sans-serif;">
+                <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/0*zAqgw0kCzTYdJsyo"
+                     alt="How Data Quality Influences Business Intelligence & Decision-Making"
+                     style="width: 100%; height: 140px; object-fit: cover; display: block;">
+                <div class="article-content" style="padding: 1em; display: flex; flex-direction: column; flex-grow: 1;">
+                    <h3 style="font-size: 0.9em; margin-bottom: 0.5em; color: #fff; line-height: 1.3em; font-weight: 600; font-family: 'Source Sans Pro', Helvetica, sans-serif;">
+                        How Data Quality Influences Business Intelligence & Decision-Making
+                    </h3>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Article Cards Hover Effects - Matching dark theme */
+    .article-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        background-color: rgba(255, 255, 255, 0.08) !important;
+        text-decoration: none;
+    }
+
+    /* Responsive Design - Matching project cards breakpoints */
+    @media screen and (max-width: 980px) {
+        .articles-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 1em !important;
+        }
+    }
+
+    @media screen and (max-width: 736px) {
+        .articles-grid {
+            grid-template-columns: 1fr !important;
+        }
+    }
+</style>
+
+
 		<!-- Footer -->
 			<section id="footer">
 				<ul class="icons">
