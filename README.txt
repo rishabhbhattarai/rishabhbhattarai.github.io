@@ -1,31 +1,34 @@
-Photon by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+# Rishabh Bhattarai - Data Analytics Portfolio
 
 
-A simple (gradient-heavy) single pager that revisits a style I messed with on two
-previous designs (Tessellate and Telephasic). Fully responsive, built on Sass,
-and, as usual, loaded with an assortment of pre-styled elements. Have fun! :)
+## 🌟 About This Portfolio
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+A responsive, modern portfolio website showcasing my data analytics projects, skills, and professional experience. Built with HTML5, CSS3, and JavaScript, featuring a clean design that highlights data visualization and storytelling capabilities.
 
-(* = Not included)
+## 🚀 Live Portfolio
 
-Feedback, bug reports, and comments are not only welcome, but strongly encouraged :)
+[**View Live Portfolio**](https://rishabhbhattarai.github.io/)
 
-AJ
-aj@lkn.io | @ajlkn
+## 📊 Portfolio Sections
 
+- **Home**: Professional introduction with custom logo
+- **Featured Projects**: Interactive project gallery with filtering
+- **Badges & Certificates**: Professional certifications and achievements  
+- **Technical & Professional Skills**: Tools and competencies
+- **Articles & Insights**: Data-related writing and perspectives
 
-Credits:
+## 🛠️ Built With
 
-	Demo Images:
-		Unsplash (unsplash.com)
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Icons**: Bootstrap Icons
+- **Design**: Responsive web design
+- **Hosting**: GitHub Pages
 
-	Icons:
-		Font Awesome (fontawesome.io)
+## 📈 Featured Skills
 
-	Other:
-		jQuery (jquery.com)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+- **Data Analysis**: SQL, Python, Excel, Google Sheets
+- **Visualization**: Tableau, Data Storytelling
+- **Tools**: Jupyter Notebooks, Odoo, SharePoint
+- **Professional**: Data Governance, Business Analysis, Project Management
+
+---
