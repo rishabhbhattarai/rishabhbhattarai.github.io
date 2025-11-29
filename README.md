@@ -1,4 +1,4 @@
-# Rishabh Bhattarai - Data Analytics Portfolio
+# Rishabh Bhattarai - Data Portfolio
 
 
 ## 🌟 About This Portfolio
