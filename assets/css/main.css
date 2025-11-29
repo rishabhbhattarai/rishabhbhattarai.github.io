@@ -3510,3 +3510,17 @@ input, select, textarea {
 			}
 
 	}
+
+	.custom-logo {
+    width: 500px; /* Adjust this value as needed */
+    height: 500px;
+    margin-bottom: 2px;
+    border-radius: 50%; /* Since your logo is round */
+}
+
+/* Or if you want to match the cloud icon size exactly */
+.custom-logo {
+    max-width: 200px; /* Slightly larger than cloud */
+    height: auto;
+    margin-bottom: 2px;
+}
